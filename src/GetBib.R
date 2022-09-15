@@ -1,4 +1,4 @@
-#!/usr/bin/env Rscript --vanilla
+#!/usr/bin/env -S Rscript --vanilla
 ##  Copyright (C) 2022  Nathan Constantine-Cooke
 ##
 ##  Released under MIT license
