@@ -1,4 +1,8 @@
 #!/usr/bin/env Rscript --vanilla
+##  Copyright (C) 2022  Nathan Constantine-Cooke
+##
+##  Released under MIT license
+
 require(httr)
 require(docopt)
 # Also requires Python
