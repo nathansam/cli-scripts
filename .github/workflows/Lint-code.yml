@@ -15,7 +15,7 @@ jobs:
           use-public-rspm: true
       - name: Install dependencies
         run: |
-          install.packages(c("httr", "docopt", "styler"), type = "binary")
+          install.packages(c("httr", "docopt", "styler"))
         shell: Rscript {0}
       - name: Lint package
         run: styler::style_dir("src")
