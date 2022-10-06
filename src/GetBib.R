@@ -18,20 +18,24 @@ opt <- docopt(doc, version = "0.1")
 
 headers <- c(Accept = "application/x-bibtex")
 
-res <- GET(
-  url = paste0("https://doi.org/", opt$DOI),
-  add_headers(.headers = headers)
-)
-
-if (res$headers$`content-type` != "application/x-bibtex") {
-  stop("DOI not found", call. = FALSE)
-}
-
-cat(content(res, "text", encoding = "UTF-8"))
-
-if (length(opt$file) != 0) {
-  write(content(res, "text", encoding = "UTF-8"),
-    file = opt$file,
-    append = TRUE
+if (curl::has_internet()) {
+  res <- GET(
+    url = paste0("https://doi.org/", opt$DOI),
+    add_headers(.headers = headers)
   )
+  
+  if (res$headers$`content-type` != "application/x-bibtex") {
+    stop("DOI not found", call. = FALSE)
+  }
+  
+  cat(content(res, "text", encoding = "UTF-8"))
+  
+  if (length(opt$file) != 0) {
+    write(content(res, "text", encoding = "UTF-8"),
+      file = opt$file,
+      append = TRUE
+    )
+  }
+} else{
+  cat(crayon::red("No internet connection available! \n"))
 }
