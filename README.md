@@ -1,6 +1,10 @@
-# cli-scripts
+# cli-scripts 
+
+[![Documentation Status](https://readthedocs.org/projects/cli-scripts/badge/?version=latest)](https://cli-scripts.readthedocs.io/en/latest/?badge=latest)
 
 Command line scripts I frequently use in my work
+
+
 
 ## To use
 
