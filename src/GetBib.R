@@ -23,19 +23,19 @@ if (curl::has_internet()) {
     url = paste0("https://doi.org/", opt$DOI),
     add_headers(.headers = headers)
   )
-  
+
   if (res$headers$`content-type` != "application/x-bibtex") {
     stop("DOI not found", call. = FALSE)
   }
-  
+
   cat(content(res, "text", encoding = "UTF-8"))
-  
+
   if (length(opt$file) != 0) {
     write(content(res, "text", encoding = "UTF-8"),
       file = opt$file,
       append = TRUE
     )
   }
-} else{
+} else {
   cat(crayon::red("No internet connection available! \n"))
 }
